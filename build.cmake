@@ -47,3 +47,8 @@ message(STATUS "qemu build")
 run_docker("ninja -C c:/objs/qemu")
 message(STATUS "qemu install")
 run_docker("ninja -C c:/objs/qemu install")
+
+# Extract files
+message(STATUS "Extracting...")
+run_docker("cp -rp c:/dist/* c:/out/")
+message(STATUS "Done")
