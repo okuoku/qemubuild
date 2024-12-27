@@ -1,0 +1,21 @@
+[submodule "deps/glib"]
+	path = deps/glib
+	url = https://gitlab.gnome.org/GNOME/glib.git
+[submodule "deps/libslirp"]
+	path = deps/libslirp
+	url = https://gitlab.freedesktop.org/slirp/libslirp.git
+[submodule "deps/pixman"]
+	path = deps/pixman
+	url = https://gitlab.freedesktop.org/pixman/pixman.git
+[submodule "deps/virglrenderer"]
+	path = deps/virglrenderer
+	url = https://gitlab.freedesktop.org/virgl/virglrenderer.git
+[submodule "deps/libepoxy"]
+	path = deps/libepoxy
+	url = https://github.com/anholt/libepoxy.git
+[submodule "deps/SDL2"]
+	path = deps/SDL2
+	url = https://github.com/libsdl-org/SDL.git
+[submodule "qemu"]
+	path = qemu
+	url = https://github.com/qemu/qemu.git
