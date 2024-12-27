@@ -14,7 +14,7 @@ RUN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tl
   msys 'pacman --noconfirm -Syuu'; \
   msys 'pacman --noconfirm -Syuu'; \
   msys 'pacman --noconfirm -Scc'; \
-  msys 'pacman --noconfirm -S git python ninja mingw-w64-ucrt-x86_64-toolchain base-devel python-setuptools mingw-w64-ucrt-x86_64-meson mingw-w64-ucrt-x86_64-ca-certificates mingw-w64-ucrt-x86_64-egl-headers mingw-w64-ucrt-x86_64-gles-headers mingw-w64-ucrt-x86_64-cmake' ; \
+  msys 'pacman --noconfirm -S git python ninja mingw-w64-ucrt-x86_64-toolchain base-devel python-setuptools mingw-w64-ucrt-x86_64-meson mingw-w64-ucrt-x86_64-ca-certificates mingw-w64-ucrt-x86_64-egl-headers mingw-w64-ucrt-x86_64-gles-headers mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-python-yaml' ; \
   msys 'pacman --noconfirm -Scc'; 
 
 LABEL org.opencontainers.image.source=https://github.com/okuoku/qemubuild
