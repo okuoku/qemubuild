@@ -1,0 +1,20 @@
+# Before building this image, tag Windows image based on your kernel
+#   Win10: docker tag mcr.microsoft.com/windows/servercore:2004 qemubuild-windows-base
+#   Win11: docker tag mcr.microsoft.com/windows/servercore:ltsc2022 qemubuild-windows-base
+FROM qemubuild-windows-base
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+RUN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; \
+  Invoke-WebRequest -UseBasicParsing -uri "https://github.com/msys2/msys2-installer/releases/download/nightly-x86_64/msys2-base-x86_64-latest.sfx.exe" -OutFile msys2.exe; \
+  .\msys2.exe -y -oC:\; \
+  Remove-Item msys2.exe ; \
+  function msys() { C:\msys64\usr\bin\bash.exe @('-lc') + @Args; } \
+  msys ' '; \
+  msys 'pacman --noconfirm -Syuu'; \
+  msys 'pacman --noconfirm -Syuu'; \
+  msys 'pacman --noconfirm -Scc'; \
+  msys 'pacman --noconfirm -S git python ninja mingw-w64-ucrt-x86_64-toolchain base-devel python-setuptools mingw-w64-ucrt-x86_64-meson mingw-w64-ucrt-x86_64-ca-certificates mingw-w64-ucrt-x86_64-egl-headers mingw-w64-ucrt-x86_64-gles-headers mingw-w64-ucrt-x86_64-cmake' ; \
+  msys 'pacman --noconfirm -Scc'; 
+
+LABEL org.opencontainers.image.source=https://github.com/okuoku/qemubuild
