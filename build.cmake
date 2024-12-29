@@ -1,11 +1,29 @@
+find_program(CYGPATH cygpath)
+if(CYGPATH)
+    execute_process(
+        COMMAND cygpath -am ${CMAKE_CURRENT_LIST_DIR}
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        OUTPUT_VARIABLE reporoot
+        RESULT_VARIABLE rr)
+    if(rr)
+        message(STATUS "Failed to covert path: ${rr}")
+    endif()
+else()
+    set(reporoot0 ${CMAKE_CURRENT_LIST_DIR})
+    # Convert to CMake path for readability
+    file(TO_CMAKE_PATH "${reporoot0}" reporoot)
+endif()
+
+message(STATUS "reporoot = [${reporoot}]")
+
 function(run_docker script)
     execute_process(COMMAND
         docker run --isolation process --rm
         "-vtmp:c:\\objs"
         "-vlibs:c:\\libs"
         "-vdist:c:\\dist"
-        "-ve:/repos/qemubuild:c:\\srcs"
-        "-ve:/repos/qemubuild/out:c:\\out"
+        "-v${reporoot}:c:\\srcs"
+        "-v${reporoot}/out:c:\\out"
         qemubuild 
         "c:\\msys64\\msys2_shell.cmd" -here -no-start -ucrt64 -defterm 
         -c "${script}"
