@@ -19,3 +19,33 @@
 [submodule "qemu"]
 	path = qemu
 	url = https://github.com/qemu/qemu.git
+[submodule "gldeps/SPIRV-Cross"]
+	path = gldeps/SPIRV-Cross
+	url = https://github.com/KhronosGroup/SPIRV-Cross
+[submodule "gldeps/SPIRV-Headers"]
+	path = gldeps/SPIRV-Headers
+	url = https://github.com/KhronosGroup/SPIRV-Headers
+[submodule "gldeps/SPIRV-Tools"]
+	path = gldeps/SPIRV-Tools
+	url = https://github.com/KhronosGroup/SPIRV-Tools
+[submodule "gldeps/Vulkan-Headers"]
+	path = gldeps/Vulkan-Headers
+	url = https://github.com/KhronosGroup/Vulkan-Headers
+[submodule "gldeps/VulkanMemoryAllocator"]
+	path = gldeps/VulkanMemoryAllocator
+	url = https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator
+[submodule "gldeps/angle"]
+	path = gldeps/angle
+	url = https://android.googlesource.com/platform/external/angle
+[submodule "gldeps/angle-static-cmake"]
+	path = gldeps/angle-static-cmake
+	url = https://github.com/okuoku/angle-static-cmake
+[submodule "gldeps/chromium-zlib"]
+	path = gldeps/chromium-zlib
+	url = https://github.com/okuoku/chromium-zlib
+[submodule "gldeps/glslang"]
+	path = gldeps/glslang
+	url = https://github.com/KhronosGroup/glslang
+[submodule "gldeps/volk"]
+	path = gldeps/volk
+	url = https://github.com/zeux/volk
