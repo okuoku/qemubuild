@@ -1,0 +1,13 @@
+prefix=@FAKEPOXY_INSTALL_PREFIX@
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+epoxy_has_glx=0
+epoxy_has_egl=1
+epoxy_has_wgl=0
+
+Name: epoxy
+Description: FAKEPOXY
+Version: 1.5.0
+Libs: $<TARGET_FILE:SPIRV-Tools-static> $<TARGET_FILE:SPIRV-Tools-opt> $<TARGET_FILE:SPIRV> $<TARGET_FILE:my-glslang-default-resource-limits> $<TARGET_FILE:angle_static> $<TARGET_FILE:fakepoxy>
+Cflags: -I${includedir}
