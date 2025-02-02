@@ -14,6 +14,12 @@ epoxy_gl_version(void){
 }
 
 bool 
+epoxy_has_egl_extension(EGLDisplay dpy, const char *extension){
+    /* FIXME: Implement this */
+    return true;
+}
+
+bool 
 epoxy_has_gl_extension(const char *extension){
     /* FIXME: Implement this */
     return true;
