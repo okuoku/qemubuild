@@ -58,7 +58,6 @@ FEUNIMPL(glDepthRangeIndexed); /* ??? */
 FEUNIMPL(glDepthRangeIndexedfOES_unimpl); /* Conditional? */
 FEUNIMPL(glDepthRange);
 #define glDepthRangefOES glDepthRangef
-//FEUNIMPL(glDepthRangef_unimpl); /* Conditional? */
 #define glVertexAttribDivisorARB glVertexAttribDivisor
 FEUNIMPL(glBindVertexBuffers);
 #define glBindBufferARB glBindBuffer
@@ -116,6 +115,12 @@ FEUNIMPL(glEndConditionalRenderNV_unimpl); /* Conditional? */
 FEUNIMPL(glBeginConditionalRender); /* Conditional? */
 #define glBeginConditionalRenderNV glBeginConditionalRenderNV_unimpl
 FEUNIMPL(glBeginConditionalRenderNV_unimpl); /* Conditional? */
+
+/* Downlevels */
+/* Angle do not like calling GLES3.2 functions from 3.1 context */
+#define glCopyImageSubData glCopyImageSubDataEXT
+#define glSamplerParameterIuiv glSamplerParameterIuivEXT
+
 #pragma GCC diagnostic pop
 
 /* Tokens */
