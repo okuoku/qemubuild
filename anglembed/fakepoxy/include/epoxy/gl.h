@@ -41,17 +41,24 @@ void fakepoxy__unimpl(const char* funcname);
 #define FEUNIMPL(func) static void func(...){ fakepoxy__unimpl(__func__); } static void func(...)
 FEUNIMPL(glTexImage2DMultisample);
 #define glBindFragDataLocationIndexed glBindFragDataLocationIndexedEXT
-#define glTextureView glTextureViewOES
+//#define glTextureView glTextureViewOES
+FEUNIMPL(glTextureView); /* Conditional? */
 #define glFramebufferTexture3D glFramebufferTexture3DOES
 FEUNIMPL(glFramebufferTexture1D);
 FEUNIMPL(glTextureBarrier);
 FEUNIMPL(glColorMaskIndexedEXT);
 FEUNIMPL(glClearDepth);
 #define glClearTexSubImage glClearTexSubImageEXT
-#define glScissorIndexed glScissorIndexedOES
-#define glViewportIndexedf glViewportIndexedfOES
+//#define glScissorIndexed glScissorIndexedOES
+FEUNIMPL(glScissorIndexed); /* Conditional? */
+//#define glViewportIndexedf glViewportIndexedfOES
+FEUNIMPL(glViewportIndexedf); /* Conditional? */
 FEUNIMPL(glDepthRangeIndexed); /* ??? */
+#define glDepthRangeIndexedfOES glDepthRangeIndexedfOES_unimpl
+FEUNIMPL(glDepthRangeIndexedfOES_unimpl); /* Conditional? */
 FEUNIMPL(glDepthRange);
+#define glDepthRangefOES glDepthRangef
+//FEUNIMPL(glDepthRangef_unimpl); /* Conditional? */
 #define glVertexAttribDivisorARB glVertexAttribDivisor
 FEUNIMPL(glBindVertexBuffers);
 #define glBindBufferARB glBindBuffer
@@ -101,8 +108,14 @@ FEUNIMPL(glBeginQueryIndexed);
 FEUNIMPL(glEndQueryIndexed);
 FEUNIMPL(glGetQueryObjectiv);
 FEUNIMPL(glGetQueryObjecti64v);
-#define glEndConditionalRender glEndConditionalRenderNV
-#define glBeginConditionalRender glBeginConditionalRenderNV
+//#define glEndConditionalRender glEndConditionalRenderNV
+FEUNIMPL(glEndConditionalRender); /* Conditional? */
+#define glEndConditionalRenderNV glEndConditionalRenderNV_unimpl
+FEUNIMPL(glEndConditionalRenderNV_unimpl); /* Conditional? */
+//#define glBeginConditionalRender glBeginConditionalRenderNV
+FEUNIMPL(glBeginConditionalRender); /* Conditional? */
+#define glBeginConditionalRenderNV glBeginConditionalRenderNV_unimpl
+FEUNIMPL(glBeginConditionalRenderNV_unimpl); /* Conditional? */
 #pragma GCC diagnostic pop
 
 /* Tokens */
