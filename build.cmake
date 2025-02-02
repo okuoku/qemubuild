@@ -44,15 +44,15 @@ endfunction()
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/out)
 
 # Deps
-build_meson(glib "")
-build_meson(pixman "")
-build_meson(libslirp "")
-build_meson(libepoxy "-Degl=yes")
-build_meson(virglrenderer "")
+#build_meson(glib "")
+#build_meson(pixman "")
+#build_meson(libslirp "")
+#build_meson(libepoxy "-Degl=yes")
+#build_meson(virglrenderer "")
 
 # SDL2
 message(STATUS "SDL2 configure")
-run_docker("/ucrt64/bin/cmake -G Ninja -DSDL_STATIC=ON -DSDL_SHARED=OFF -DSDL_OPENGL=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=c:/libs -B c:/objs/SDL2 -S c:/srcs/deps/SDL2")
+run_docker("/ucrt64/bin/cmake -G Ninja -DSDL_STATIC=ON -DSDL_SHARED=OFF -DSDL_OPENGL=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo '-DCMAKE_C_FLAGS=-DSDL_VIDEO_STATIC_ANGLE -DKHRONOS_STATIC' -DCMAKE_INSTALL_PREFIX=c:/libs -B c:/objs/SDL2 -S c:/srcs/deps/SDL2")
 message(STATUS "SDL2 build")
 run_docker("/ucrt64/bin/cmake --build c:/objs/SDL2")
 message(STATUS "SDL2 install")
