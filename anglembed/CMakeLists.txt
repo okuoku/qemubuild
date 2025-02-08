@@ -51,6 +51,7 @@ set(glheaders
     EGL/eglplatform.h
     GLES/gl.h
     GLES/glext.h
+    GLES/glplatform.h
     GLES2/gl2.h
     GLES2/gl2ext.h
     GLES2/gl2ext_angle.h # ANGLE
