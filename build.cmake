@@ -80,7 +80,7 @@ build_meson(virglrenderer "")
 
 # SDL2
 message(STATUS "SDL2 configure")
-run_docker("${cmake} -G Ninja -DSDL_STATIC=ON -DSDL_SHARED=OFF -DSDL_OPENGL=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo '-DCMAKE_C_FLAGS=-DSDL_VIDEO_STATIC_ANGLE -DKHRONOS_STATIC ${cmake_crossflag}' -DCMAKE_INSTALL_PREFIX=${cmakeroot}libs -B ${cmakeroot}objs/SDL2 -S ${cmakeroot}srcs/deps/SDL2")
+run_docker("${cmake} -G Ninja ${cmake_crosscompile} -DSDL_STATIC=ON -DSDL_SHARED=OFF -DSDL_OPENGL=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo '-DCMAKE_C_FLAGS=-DSDL_VIDEO_STATIC_ANGLE -DKHRONOS_STATIC ${cmake_crossflag}' -DCMAKE_INSTALL_PREFIX=${cmakeroot}libs -B ${cmakeroot}objs/SDL2 -S ${cmakeroot}srcs/deps/SDL2")
 message(STATUS "SDL2 build")
 run_docker("${cmake} --build ${cmakeroot}objs/SDL2")
 message(STATUS "SDL2 install")
