@@ -1,21 +1,23 @@
 cmake_minimum_required(VERSION 3.20)
 project(fakepoxy)
 
-set(glheaderdir ${ANGLE_ROOT}/include)
+set(anglembed ${CMAKE_CURRENT_LIST_DIR}/../anglembed)
+
+add_subdirectory(${anglembed} anglembed)
+
+set(glheaderdir ${anglembed}/angle/include)
 include_directories(${glheaderdir})
 include_directories(include)
 
 add_library(fakepoxy STATIC fakepoxy.c)
+
+# Fakepoxy pkgconfig file
 
 set(FAKEPOXY_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 configure_file(${CMAKE_CURRENT_LIST_DIR}/fakepoxy.pc.in
     ${CMAKE_CURRENT_BINARY_DIR}/fakepoxy.pc.in0 @ONLY)
 
 # Deploy GL Headers from ANGLE
-
-# FIXME: Deploy files at configuration times..
-
-
 
 set(glheaders
     EGL/egl.h

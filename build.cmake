@@ -72,11 +72,11 @@ endif()
 
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/out)
 
-# Anglembed (includes fakepoxy: libepoxy stub)
-message(STATUS "Anglembed configure")
-run_docker("${cmake} -G Ninja ${cmake_crosscompile} -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=${cmakeroot}libs -B ${cmakeroot}objs/anglembed -S ${cmakeroot}srcs/anglembed")
-message(STATUS "Anglembed build")
-run_docker("${cmake} --build ${cmakeroot}objs/anglembed")
+# GL implementation (Anglembed + Fakepoxy)
+message(STATUS "Fakepoxy(Anglembed) configure")
+run_docker("${cmake} -G Ninja ${cmake_crosscompile} -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=${cmakeroot}libs -B ${cmakeroot}objs/fakepoxy -S ${cmakeroot}srcs/fakepoxy")
+message(STATUS "Fakepoxy(Anglembed) build")
+run_docker("${cmake} --build ${cmakeroot}objs/fakepoxy")
 
 # Deps
 build_meson(glib "")
